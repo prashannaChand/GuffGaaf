@@ -1,0 +1,59 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Hey", "Good morning", "Good evening"],
+      "responses": ["Hello! How can I assist you with your fitness today?", "Hey there! Need help with your workout or diet?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you", "Goodbye", "Talk to you later"],
+      "responses": ["Goodbye! Stay strong and healthy.", "Catch you later! Don’t skip leg day!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "Appreciate it"],
+      "responses": ["You're welcome!", "Happy to help!"]
+    },
+    {
+      "tag": "workout_chest",
+      "patterns": ["What is the best chest workout?", "How to build chest muscles?", "Chest exercises", "Workout for chest"],
+      "responses": ["You can try bench press, push-ups, dumbbell flys, and cable crossovers."]
+    },
+    {
+      "tag": "workout_arms",
+      "patterns": ["Workout for arms", "How to grow biceps?", "Best triceps exercises"],
+      "responses": ["Include barbell curls, hammer curls, tricep dips, and skull crushers in your routine."]
+    },
+    {
+      "tag": "workout_abs",
+      "patterns": ["Abs workout", "How to get six pack?", "Core exercises", "Flat stomach workout"],
+      "responses": ["Try planks, crunches, bicycle kicks, and hanging leg raises."]
+    },
+    {
+      "tag": "diet_muscle_gain",
+      "patterns": ["What should I eat to gain muscle?", "Diet for bulking", "Muscle gain food"],
+      "responses": ["Focus on protein-rich foods like chicken, eggs, paneer, lentils, oats, and nuts."]
+    },
+    {
+      "tag": "diet_fat_loss",
+      "patterns": ["How to lose fat?", "Weight loss food", "Cutting diet"],
+      "responses": ["Eat high-protein, low-carb meals, and avoid processed sugars and excess fats."]
+    },
+    {
+      "tag": "protein_requirement",
+      "patterns": ["How much protein do I need?", "Daily protein intake", "Protein per kg bodyweight"],
+      "responses": ["Typically, 1.6 to 2.2 grams of protein per kg of bodyweight is recommended for muscle gain."]
+    },
+    {
+      "tag": "supplements",
+      "patterns": ["Should I take whey?", "Creatine benefits", "What supplements to take?"],
+      "responses": ["Common supplements include whey protein, creatine, fish oil, and multivitamins — but whole food should be your priority."]
+    },
+    {
+      "tag": "gym_frequency",
+      "patterns": ["How often should I go to the gym?", "How many days to workout?", "Is daily gym good?"],
+      "responses": ["3–5 days a week is ideal depending on your goals and recovery."]
+    }
+  ]
+}
