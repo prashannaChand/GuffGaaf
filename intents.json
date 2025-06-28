@@ -2,58 +2,151 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": ["Hi", "Hello", "Hey", "Good morning", "Good evening"],
-      "responses": ["Hello! How can I assist you with your fitness today?", "Hey there! Need help with your workout or diet?"]
+      "patterns": ["Hi", "Hello", "Hey", "Good morning", "Good evening", "What's up?", "Yo"],
+      "responses": ["Hello! How can I assist you today?", "Hi! Ready to get fit?", "Hey! Need help with workout or food?"]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "See you", "Goodbye", "Talk to you later"],
-      "responses": ["Goodbye! Stay strong and healthy.", "Catch you later! Don’t skip leg day!"]
+      "patterns": ["Bye", "See you", "Goodbye", "Catch you later", "Talk to you soon"],
+      "responses": ["Goodbye! Stay fit!", "See you! Keep lifting!"]
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "Appreciate it"],
-      "responses": ["You're welcome!", "Happy to help!"]
+      "patterns": ["Thanks", "Thank you", "I appreciate it", "Much obliged"],
+      "responses": ["You're welcome!", "Happy to help!", "Anytime, champ!"]
     },
+
+    // WORKOUT-RELATED
     {
       "tag": "workout_chest",
-      "patterns": ["What is the best chest workout?", "How to build chest muscles?", "Chest exercises", "Workout for chest"],
-      "responses": ["You can try bench press, push-ups, dumbbell flys, and cable crossovers."]
+      "patterns": ["Chest workout", "How to build chest?", "Best chest exercises", "Upper chest routine"],
+      "responses": ["Try bench press, incline dumbbell press, cable crossover, and push-ups."]
     },
     {
       "tag": "workout_arms",
-      "patterns": ["Workout for arms", "How to grow biceps?", "Best triceps exercises"],
-      "responses": ["Include barbell curls, hammer curls, tricep dips, and skull crushers in your routine."]
+      "patterns": ["Arm workout", "Grow biceps", "Best triceps workout", "Workout for arms"],
+      "responses": ["Barbell curls, hammer curls, tricep dips, and skull crushers work great."]
+    },
+    {
+      "tag": "workout_back",
+      "patterns": ["Back workout", "Strengthen back", "Exercises for lats", "Pull workout"],
+      "responses": ["Deadlifts, pull-ups, bent-over rows, and lat pulldowns are effective."]
+    },
+    {
+      "tag": "workout_shoulders",
+      "patterns": ["Shoulder exercises", "Deltoid workout", "Build shoulders"],
+      "responses": ["Do overhead press, lateral raises, front raises, and Arnold press."]
+    },
+    {
+      "tag": "workout_legs",
+      "patterns": ["Leg workout", "Leg day routine", "Build quads", "Best calf exercises"],
+      "responses": ["Squats, lunges, leg press, calf raises, and Romanian deadlifts are great."]
     },
     {
       "tag": "workout_abs",
-      "patterns": ["Abs workout", "How to get six pack?", "Core exercises", "Flat stomach workout"],
-      "responses": ["Try planks, crunches, bicycle kicks, and hanging leg raises."]
+      "patterns": ["Abs workout", "Core training", "Flat stomach", "Get six-pack"],
+      "responses": ["Planks, crunches, hanging leg raises, and Russian twists work well."]
     },
     {
+      "tag": "full_body_workout",
+      "patterns": ["Full body routine", "Best overall workout", "Train all muscles"],
+      "responses": ["Try circuit training: squats, push-ups, pull-ups, and burpees."]
+    },
+
+    // NUTRITION & DIET
+    {
       "tag": "diet_muscle_gain",
-      "patterns": ["What should I eat to gain muscle?", "Diet for bulking", "Muscle gain food"],
-      "responses": ["Focus on protein-rich foods like chicken, eggs, paneer, lentils, oats, and nuts."]
+      "patterns": ["Diet for bulking", "Muscle gain food", "What to eat to build muscle"],
+      "responses": ["Eat protein-rich foods like chicken, eggs, paneer, nuts, and oats with a calorie surplus."]
     },
     {
       "tag": "diet_fat_loss",
-      "patterns": ["How to lose fat?", "Weight loss food", "Cutting diet"],
-      "responses": ["Eat high-protein, low-carb meals, and avoid processed sugars and excess fats."]
+      "patterns": ["Fat loss diet", "Lose weight food", "Cutting food", "How to lose fat"],
+      "responses": ["Eat high-protein, low-carb meals. Avoid sugar and processed food."]
     },
     {
-      "tag": "protein_requirement",
-      "patterns": ["How much protein do I need?", "Daily protein intake", "Protein per kg bodyweight"],
-      "responses": ["Typically, 1.6 to 2.2 grams of protein per kg of bodyweight is recommended for muscle gain."]
+      "tag": "veg_protein_sources",
+      "patterns": ["Vegetarian protein sources", "Veg food for muscle", "Non-meat protein"],
+      "responses": ["Try lentils, paneer, tofu, chickpeas, soybeans, and oats."]
     },
+    {
+      "tag": "hydration",
+      "patterns": ["How much water to drink?", "Stay hydrated", "Hydration advice"],
+      "responses": ["Drink at least 3-4 liters daily, and more if you're working out."]
+    },
+
+    // SUPPLEMENTS
     {
       "tag": "supplements",
-      "patterns": ["Should I take whey?", "Creatine benefits", "What supplements to take?"],
-      "responses": ["Common supplements include whey protein, creatine, fish oil, and multivitamins — but whole food should be your priority."]
+      "patterns": ["Which supplements to take?", "Best whey protein", "Is creatine safe?", "Do I need BCAA?"],
+      "responses": ["Whey protein, creatine monohydrate, fish oil, and multivitamins are common and effective."]
     },
     {
-      "tag": "gym_frequency",
-      "patterns": ["How often should I go to the gym?", "How many days to workout?", "Is daily gym good?"],
-      "responses": ["3–5 days a week is ideal depending on your goals and recovery."]
+      "tag": "natural_vs_supplements",
+      "patterns": ["Should I use supplements or food?", "Supplements vs real food", "Can I gain muscle without supplements?"],
+      "responses": ["Whole food is always best. Supplements are useful when your diet lacks key nutrients."]
+    },
+
+    // BODY STATS
+    {
+      "tag": "protein_requirement",
+      "patterns": ["How much protein do I need?", "Protein per kg", "Protein intake"],
+      "responses": ["1.6–2.2g of protein per kg of bodyweight is recommended for muscle gain."]
+    },
+    {
+      "tag": "calorie_calculation",
+      "patterns": ["How many calories should I eat?", "Calories for muscle gain", "Cutting calories"],
+      "responses": ["Use your BMR and add 300-500 kcal for bulking, or reduce 300-500 kcal for cutting."]
+    },
+    {
+      "tag": "bmi_info",
+      "patterns": ["What is my BMI?", "BMI meaning", "Body mass index"],
+      "responses": ["BMI = weight(kg) / height(m)^2. It’s a general indicator of body fat."]
+    },
+
+    // RECOVERY
+    {
+      "tag": "recovery_tips",
+      "patterns": ["How to recover fast?", "Post workout recovery", "Muscle soreness solution"],
+      "responses": ["Sleep 7–9 hours, stretch, hydrate, and eat enough protein."]
+    },
+    {
+      "tag": "rest_days",
+      "patterns": ["Should I take rest days?", "How often to rest?", "Is rest day important?"],
+      "responses": ["Yes! Rest 1–2 days a week for optimal muscle growth and recovery."]
+    },
+
+    // MOTIVATION / LIFESTYLE
+    {
+      "tag": "motivation",
+      "patterns": ["I feel lazy", "No motivation", "Help me stay consistent", "Why should I work out?"],
+      "responses": ["Your body becomes stronger and healthier with every workout. Start small and stay consistent!"]
+    },
+    {
+      "tag": "gym_tips",
+      "patterns": ["Tips for beginners", "Gym advice", "First time gym", "How to start?"],
+      "responses": ["Start with compound exercises, track progress, stay consistent, and ask for help when needed."]
+    },
+
+    // INJURIES
+    {
+      "tag": "injury_advice",
+      "patterns": ["I got injured", "Workout injury", "Muscle strain", "Shoulder pain after gym"],
+      "responses": ["Rest the affected area, apply ice, and consult a physiotherapist if needed."]
+    },
+
+    // EQUIPMENT
+    {
+      "tag": "equipment_info",
+      "patterns": ["Should I use machines or free weights?", "Best home gym equipment", "What equipment should I buy?"],
+      "responses": ["Free weights are versatile, but machines are safer for beginners. For home: dumbbells, resistance bands, and a bench are great."]
+    },
+
+    // SCHEDULE
+    {
+      "tag": "gym_schedule",
+      "patterns": ["Best time to workout", "Morning vs evening workout", "Should I go daily?"],
+      "responses": ["Workout when your energy is highest. Consistency matters more than time of day."]
     }
   ]
 }
