@@ -16,7 +16,6 @@
       "responses": ["You're welcome!", "Happy to help!", "Anytime, champ!"]
     },
 
-    // WORKOUT-RELATED
     {
       "tag": "workout_chest",
       "patterns": ["Chest workout", "How to build chest?", "Best chest exercises", "Upper chest routine"],
@@ -53,7 +52,6 @@
       "responses": ["Try circuit training: squats, push-ups, pull-ups, and burpees."]
     },
 
-    // NUTRITION & DIET
     {
       "tag": "diet_muscle_gain",
       "patterns": ["Diet for bulking", "Muscle gain food", "What to eat to build muscle"],
@@ -74,9 +72,7 @@
       "patterns": ["How much water to drink?", "Stay hydrated", "Hydration advice"],
       "responses": ["Drink at least 3-4 liters daily, and more if you're working out."]
     },
-
-    // SUPPLEMENTS
-    {
+  {
       "tag": "supplements",
       "patterns": ["Which supplements to take?", "Best whey protein", "Is creatine safe?", "Do I need BCAA?"],
       "responses": ["Whey protein, creatine monohydrate, fish oil, and multivitamins are common and effective."]
@@ -87,7 +83,7 @@
       "responses": ["Whole food is always best. Supplements are useful when your diet lacks key nutrients."]
     },
 
-    // BODY STATS
+  
     {
       "tag": "protein_requirement",
       "patterns": ["How much protein do I need?", "Protein per kg", "Protein intake"],
@@ -104,8 +100,7 @@
       "responses": ["BMI = weight(kg) / height(m)^2. It’s a general indicator of body fat."]
     },
 
-    // RECOVERY
-    {
+  {
       "tag": "recovery_tips",
       "patterns": ["How to recover fast?", "Post workout recovery", "Muscle soreness solution"],
       "responses": ["Sleep 7–9 hours, stretch, hydrate, and eat enough protein."]
@@ -116,7 +111,7 @@
       "responses": ["Yes! Rest 1–2 days a week for optimal muscle growth and recovery."]
     },
 
-    // MOTIVATION / LIFESTYLE
+   
     {
       "tag": "motivation",
       "patterns": ["I feel lazy", "No motivation", "Help me stay consistent", "Why should I work out?"],
@@ -128,21 +123,19 @@
       "responses": ["Start with compound exercises, track progress, stay consistent, and ask for help when needed."]
     },
 
-    // INJURIES
-    {
+   {
       "tag": "injury_advice",
       "patterns": ["I got injured", "Workout injury", "Muscle strain", "Shoulder pain after gym"],
       "responses": ["Rest the affected area, apply ice, and consult a physiotherapist if needed."]
     },
 
-    // EQUIPMENT
-    {
+   {
       "tag": "equipment_info",
       "patterns": ["Should I use machines or free weights?", "Best home gym equipment", "What equipment should I buy?"],
       "responses": ["Free weights are versatile, but machines are safer for beginners. For home: dumbbells, resistance bands, and a bench are great."]
     },
 
-    // SCHEDULE
+    
     {
       "tag": "gym_schedule",
       "patterns": ["Best time to workout", "Morning vs evening workout", "Should I go daily?"],
