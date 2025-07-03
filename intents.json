@@ -2,144 +2,958 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": ["Hi", "Hello", "Hey", "Good morning", "Good evening", "What's up?", "Yo"],
-      "responses": ["Hello! How can I assist you today?", "Hi! Ready to get fit?", "Hey! Need help with workout or food?"]
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Good morning",
+        "Good evening",
+        "What's up?",
+        "Yo",
+        "How's it going?",
+        "Sup?",
+        "Hey there",
+        "Greetings",
+        "Hi bot",
+        "Hello gym bot",
+        "What's good?",
+        "Yo what's up?",
+        "Morning!",
+        "Evening!",
+        "Hey buddy",
+        "What's new?",
+        "Hi there"
+      ],
+      "responses": [
+        "Hey! Ready to crush your workout?",
+        "Hi! What's your fitness goal today?",
+        "Yo! Let\u2019s talk gym!",
+        "Hello! Need workout or diet tips?",
+        "Sup? Let's get you pumped!",
+        "Greetings! Ready to sweat?",
+        "Hey there! What's the gym plan?",
+        "Morning! Time to hit the weights?",
+        "Evening! Let\u2019s plan your session.",
+        "What's good? Ready for some gains?"
+      ]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "See you", "Goodbye", "Catch you later", "Talk to you soon"],
-      "responses": ["Goodbye! Stay fit!", "See you! Keep lifting!"]
+      "patterns": [
+        "Bye",
+        "See you",
+        "Goodbye",
+        "Catch you later",
+        "Talk to you soon",
+        "I'm out",
+        "Later",
+        "Take care",
+        "Peace out",
+        "See ya",
+        "Gotta go",
+        "Bye bye",
+        "Farewell",
+        "Catch you next time",
+        "Later bro",
+        "I'm done",
+        "See you soon",
+        "Adios"
+      ],
+      "responses": [
+        "Goodbye! Stay fit!",
+        "See you! Keep lifting!",
+        "Catch you later! Stay strong!",
+        "Take care and keep training!",
+        "Peace out! Hit the gym soon!",
+        "Later! Don\u2019t skip leg day!",
+        "Bye! Keep those gains coming!",
+        "See you next time! Stay active!"
+      ]
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "I appreciate it", "Much obliged"],
-      "responses": ["You're welcome!", "Happy to help!", "Anytime, champ!"]
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "I appreciate it",
+        "Much obliged",
+        "Thanks a lot",
+        "Thank you so much",
+        "Cheers",
+        "Thanks bro",
+        "Appreciate the help",
+        "Thx",
+        "Thank you kindly",
+        "Grateful",
+        "Thanks for the tips",
+        "Thank you for helping",
+        "Appreciate it!",
+        "Thanks heaps"
+      ],
+      "responses": [
+        "You're welcome!",
+        "Happy to help!",
+        "Anytime, champ!",
+        "No prob, keep grinding!",
+        "Cheers! Stay fit!",
+        "Glad I could help!",
+        "You got it! Keep training!",
+        "My pleasure, keep pushing!"
+      ]
     },
-
     {
       "tag": "workout_chest",
-      "patterns": ["Chest workout", "How to build chest?", "Best chest exercises", "Upper chest routine"],
-      "responses": ["Try bench press, incline dumbbell press, cable crossover, and push-ups."]
+      "patterns": [
+        "Chest workout",
+        "How to build chest?",
+        "Best chest exercises",
+        "Upper chest routine",
+        "Grow pecs",
+        "Chest day plan",
+        "How to get bigger chest?",
+        "Pectoral exercises",
+        "Chest training tips",
+        "Bench press workout",
+        "Incline press routine",
+        "Chest muscle gain",
+        "How to tone chest?",
+        "Chest workout for beginners",
+        "Pecs exercises",
+        "Chest strength routine",
+        "Upper body chest workout",
+        "How to improve chest?"
+      ],
+      "responses": [
+        "Try {exercise} for a great chest workout!",
+        "For a strong chest, focus on {exercise} and incline press.",
+        "Build your pecs with {exercise}, dumbbell bench press, and cable crossovers.",
+        "Incline bench, dips, and {exercise} are solid for upper chest gains.",
+        "Start with {exercise} and push-ups for a beginner-friendly chest routine.",
+        "Chest day: {exercise}, incline dumbbell press, and pec deck for definition.",
+        "To grow your chest, prioritize {exercise} and progressive overload.",
+        "Combine {exercise} with chest flies for a balanced routine."
+      ]
     },
     {
       "tag": "workout_arms",
-      "patterns": ["Arm workout", "Grow biceps", "Best triceps workout", "Workout for arms"],
-      "responses": ["Barbell curls, hammer curls, tricep dips, and skull crushers work great."]
+      "patterns": [
+        "Arm workout",
+        "Grow biceps",
+        "Best triceps workout",
+        "Workout for arms",
+        "Bicep exercises",
+        "Tricep exercises",
+        "How to get bigger arms?",
+        "Arm day routine",
+        "Build arm muscles",
+        "Curls for biceps",
+        "Arm training tips",
+        "How to tone arms?",
+        "Arm workout for beginners",
+        "Bicep and tricep plan",
+        "Arm strength exercises",
+        "Toned arms routine",
+        "How to build arm strength?",
+        "Upper arm workout"
+      ],
+      "responses": [
+        "Try {exercise} for killer arms!",
+        "{exercise}, hammer curls, and tricep dips are great for arm gains.",
+        "Build biceps with {exercise} and add skull crushers for triceps.",
+        "For toned arms, focus on {exercise} and close-grip push-ups.",
+        "Beginners: Start with {exercise} and lightweight dumbbell curls.",
+        "Arm day: {exercise}, preacher curls, and overhead tricep extensions.",
+        "To grow arms, prioritize {exercise} and eat enough protein.",
+        "Combine {exercise} with concentration curls for arm definition."
+      ]
     },
     {
       "tag": "workout_back",
-      "patterns": ["Back workout", "Strengthen back", "Exercises for lats", "Pull workout"],
-      "responses": ["Deadlifts, pull-ups, bent-over rows, and lat pulldowns are effective."]
+      "patterns": [
+        "Back workout",
+        "Strengthen back",
+        "Exercises for lats",
+        "Pull workout",
+        "Back day routine",
+        "How to build back?",
+        "Best back exercises",
+        "Lat pulldown workout",
+        "Back muscle gain",
+        "Upper back exercises",
+        "Lower back training",
+        "Back workout for beginners",
+        "How to tone back?",
+        "Pull-up routine",
+        "Back strength tips",
+        "Spinal erector exercises",
+        "Back workout plan"
+      ],
+      "responses": [
+        "Try {exercise} for a strong back!",
+        "Deadlifts, {exercise}, and bent-over rows are great for back gains.",
+        "Build your lats with {exercise} and lat pulldowns.",
+        "For a solid back, focus on {exercise} and pull-ups.",
+        "Beginners: Start with {exercise} and seated rows.",
+        "Back day: {exercise}, barbell rows, and face pulls.",
+        "To strengthen your back, prioritize {exercise} and proper form.",
+        "Combine {exercise} with pull-overs for a full back workout."
+      ]
     },
     {
       "tag": "workout_shoulders",
-      "patterns": ["Shoulder exercises", "Deltoid workout", "Build shoulders"],
-      "responses": ["Do overhead press, lateral raises, front raises, and Arnold press."]
+      "patterns": [
+        "Shoulder exercises",
+        "Deltoid workout",
+        "Build shoulders",
+        "Shoulder day routine",
+        "How to grow shoulders?",
+        "Best shoulder exercises",
+        "Overhead press workout",
+        "Shoulder muscle gain",
+        "Deltoid training tips",
+        "Shoulder workout for beginners",
+        "How to tone shoulders?",
+        "Lateral raise routine",
+        "Shoulder strength exercises",
+        "Broad shoulder workout",
+        "Shoulder definition plan",
+        "Delts exercises"
+      ],
+      "responses": [
+        "Try {exercise} for strong shoulders!",
+        "Overhead press, {exercise}, and front raises are great for delts.",
+        "Build shoulders with {exercise} and Arnold press.",
+        "For toned shoulders, focus on {exercise} and lightweight lateral raises.",
+        "Beginners: Start with {exercise} and dumbbell shoulder press.",
+        "Shoulder day: {exercise}, lateral raises, and rear delt flies.",
+        "To grow shoulders, prioritize {exercise} and progressive overload.",
+        "Combine {exercise} with upright rows for shoulder definition."
+      ]
     },
     {
       "tag": "workout_legs",
-      "patterns": ["Leg workout", "Leg day routine", "Build quads", "Best calf exercises"],
-      "responses": ["Squats, lunges, leg press, calf raises, and Romanian deadlifts are great."]
+      "patterns": [
+        "Leg workout",
+        "Leg day routine",
+        "Build quads",
+        "Best calf exercises",
+        "How to grow legs?",
+        "Leg muscle gain",
+        "Squat workout",
+        "Leg training tips",
+        "Hamstring exercises",
+        "Calf workout",
+        "Leg workout for beginners",
+        "How to tone legs?",
+        "Glute exercises",
+        "Leg strength routine",
+        "Lower body workout",
+        "Quad exercises",
+        "Leg day plan"
+      ],
+      "responses": [
+        "Try {exercise} for powerful legs!",
+        "Squats, {exercise}, and leg press are great for leg gains.",
+        "Build quads with {exercise} and lunges.",
+        "For strong calves, focus on {exercise} and seated calf raises.",
+        "Beginners: Start with {exercise} and bodyweight squats.",
+        "Leg day: {exercise}, Romanian deadlifts, and calf raises.",
+        "To grow legs, prioritize {exercise} and eat enough carbs.",
+        "Combine {exercise} with step-ups for leg strength."
+      ]
     },
     {
       "tag": "workout_abs",
-      "patterns": ["Abs workout", "Core training", "Flat stomach", "Get six-pack"],
-      "responses": ["Planks, crunches, hanging leg raises, and Russian twists work well."]
+      "patterns": [
+        "Abs workout",
+        "Core training",
+        "Flat stomach",
+        "Get six-pack",
+        "Best ab exercises",
+        "Core workout routine",
+        "How to build abs?",
+        "Ab muscle gain",
+        "Core strength exercises",
+        "Abs workout for beginners",
+        "How to tone abs?",
+        "Six-pack routine",
+        "Lower abs exercises",
+        "Core training tips",
+        "Ab definition workout",
+        "Core exercises"
+      ],
+      "responses": [
+        "Try {exercise} for a strong core!",
+        "Planks, {exercise}, and hanging leg raises are great for abs.",
+        "Build a six-pack with {exercise} and Russian twists.",
+        "For a flat stomach, focus on {exercise} and a calorie deficit.",
+        "Beginners: Start with {exercise} and basic crunches.",
+        "Core day: {exercise}, bicycle crunches, and leg raises.",
+        "To tone abs, prioritize {exercise} and clean eating.",
+        "Combine {exercise} with mountain climbers for core strength."
+      ]
     },
     {
       "tag": "full_body_workout",
-      "patterns": ["Full body routine", "Best overall workout", "Train all muscles"],
-      "responses": ["Try circuit training: squats, push-ups, pull-ups, and burpees."]
+      "patterns": [
+        "Full body routine",
+        "Best overall workout",
+        "Train all muscles",
+        "Full body exercises",
+        "How to do full body workout?",
+        "Full body gym plan",
+        "Whole body training",
+        "Full body workout for beginners",
+        "Best full body exercises",
+        "Total body routine",
+        "Full body strength",
+        "How to train whole body?",
+        "Complete workout plan",
+        "All muscle workout"
+      ],
+      "responses": [
+        "Try {exercise} for a full-body workout!",
+        "Circuit training with {exercise}, push-ups, and pull-ups hits all muscles.",
+        "Full body: {exercise}, squats, and bench press for strength.",
+        "Beginners: Start with {exercise}, bodyweight squats, and planks.",
+        "For a total body routine, include {exercise} and burpees.",
+        "Full body day: {exercise}, deadlifts, and overhead press.",
+        "To train all muscles, prioritize {exercise} and compound lifts.",
+        "Combine {exercise} with kettlebell swings for a full-body burn."
+      ]
     },
-
+    {
+      "tag": "cardio_workout",
+      "patterns": [
+        "Best cardio exercises",
+        "Cardio for fat loss",
+        "Running or cycling?",
+        "HIIT workout",
+        "Cardio routine",
+        "How to improve stamina?",
+        "Cardio training tips",
+        "Best cardio for beginners",
+        "Cardio workout plan",
+        "How to do cardio?",
+        "Endurance exercises",
+        "Cardio for weight loss",
+        "Treadmill workout",
+        "Cardio strength routine",
+        "Best cardio for stamina"
+      ],
+      "responses": [
+        "Try {exercise} for a great cardio session!",
+        "HIIT with {exercise} or running burns fat fast.",
+        "Cycling builds endurance; {exercise} burns more calories.",
+        "Beginners: Start with {exercise} for 20\u201330 min.",
+        "Cardio plan: {exercise}, rowing, and jump rope 3\u20134 times a week.",
+        "For stamina, focus on {exercise} and interval training.",
+        "To lose fat, combine {exercise} with a calorie deficit.",
+        "Try {exercise} and stair climbing for cardio gains."
+      ]
+    },
+    {
+      "tag": "warmup",
+      "patterns": [
+        "How to warm up?",
+        "Best warm-up exercises",
+        "Warm-up routine",
+        "Warm-up before workout",
+        "Pre-workout stretches",
+        "Warm-up for gym",
+        "How to prepare for exercise?",
+        "Warm-up tips",
+        "Best warm-up for lifting",
+        "Warm-up for running",
+        "Dynamic warm-up exercises",
+        "Warm-up for beginners",
+        "Pre-gym warm-up",
+        "Warm-up for cardio"
+      ],
+      "responses": [
+        "Start with a 5\u201310 min warm-up: try {exercise}.",
+        "Dynamic stretches like {exercise} prep your muscles.",
+        "Warm-up with {exercise} and arm circles before lifting.",
+        "For running, do {exercise} and high knees.",
+        "Beginners: Try {exercise} and light jogging.",
+        "Warm-up routine: {exercise}, leg swings, and jumping jacks.",
+        "To avoid injury, include {exercise} in your warm-up.",
+        "Combine {exercise} with dynamic stretches for a solid warm-up."
+      ]
+    },
+    {
+      "tag": "stretching",
+      "patterns": [
+        "Best stretches",
+        "Post-workout stretches",
+        "How to stretch?",
+        "Stretching routine",
+        "Flexibility exercises",
+        "Stretches for legs",
+        "Stretches for back",
+        "Stretching for beginners",
+        "Improve flexibility",
+        "Stretching tips",
+        "Cool-down stretches",
+        "Full body stretching",
+        "Stretches for recovery",
+        "Daily stretching routine"
+      ],
+      "responses": [
+        "Try {exercise} for better flexibility.",
+        "Post-workout, do {exercise} and hamstring stretches.",
+        "Stretch your back with {exercise} and cat-cow pose.",
+        "For legs, focus on {exercise} and quad stretches.",
+        "Beginners: Start with {exercise} and gentle stretches.",
+        "Cool-down: {exercise}, hip flexor stretch, and shoulder rolls.",
+        "To improve flexibility, include {exercise} daily.",
+        "Combine {exercise} with calf stretches for recovery."
+      ]
+    },
     {
       "tag": "diet_muscle_gain",
-      "patterns": ["Diet for bulking", "Muscle gain food", "What to eat to build muscle"],
-      "responses": ["Eat protein-rich foods like chicken, eggs, paneer, nuts, and oats with a calorie surplus."]
+      "patterns": [
+        "Diet for bulking",
+        "Muscle gain food",
+        "What to eat to build muscle",
+        "Bulking diet plan",
+        "Muscle building nutrition",
+        "How to eat for muscle?",
+        "Best foods for bulking",
+        "Diet for gym gains",
+        "High-protein diet",
+        "Muscle gain meal plan",
+        "Bulking tips",
+        "What to eat after workout?",
+        "Foods for muscle growth",
+        "Protein for bulking"
+      ],
+      "responses": [
+        "Eat protein-rich foods like {exercise} with a calorie surplus.",
+        "For muscle gain, focus on chicken, eggs, and {exercise}.",
+        "Post-workout, eat {exercise} and rice for recovery.",
+        "Bulking diet: Include {exercise}, oats, and peanut butter.",
+        "Aim for 1.6\u20132.2g protein/kg bodyweight with {exercise}.",
+        "Try {exercise}, salmon, and sweet potatoes for gains.",
+        "To build muscle, eat {exercise} and maintain a calorie surplus.",
+        "Combine {exercise} with Greek yogurt for protein."
+      ]
     },
     {
       "tag": "diet_fat_loss",
-      "patterns": ["Fat loss diet", "Lose weight food", "Cutting food", "How to lose fat"],
-      "responses": ["Eat high-protein, low-carb meals. Avoid sugar and processed food."]
+      "patterns": [
+        "Fat loss diet",
+        "Lose weight food",
+        "Cutting food",
+        "How to lose fat?",
+        "Weight loss diet plan",
+        "Best diet for cutting",
+        "Fat burning foods",
+        "Low-carb diet",
+        "Diet for weight loss",
+        "How to eat for fat loss?",
+        "Cutting meal plan",
+        "Healthy eating for fat loss",
+        "Foods for weight loss",
+        "Diet to burn fat"
+      ],
+      "responses": [
+        "Eat high-protein, low-carb meals with {exercise}.",
+        "For fat loss, focus on {exercise}, lean meats, and greens.",
+        "Avoid sugar and include {exercise} in your diet.",
+        "Cutting plan: {exercise}, grilled chicken, and broccoli.",
+        "To lose fat, eat {exercise} and maintain a calorie deficit.",
+        "Try {exercise}, eggs, and avocado for healthy fats.",
+        "Fat loss diet: {exercise}, fish, and leafy greens.",
+        "Combine {exercise} with zucchini noodles for low carbs."
+      ]
     },
     {
       "tag": "veg_protein_sources",
-      "patterns": ["Vegetarian protein sources", "Veg food for muscle", "Non-meat protein"],
-      "responses": ["Try lentils, paneer, tofu, chickpeas, soybeans, and oats."]
+      "patterns": [
+        "Vegetarian protein sources",
+        "Veg food for muscle",
+        "Non-meat protein",
+        "Vegan protein foods",
+        "Plant-based protein",
+        "Vegetarian diet for gym",
+        "Best veg protein",
+        "How to get protein without meat?",
+        "Vegan muscle gain diet",
+        "Vegetarian protein meals",
+        "Plant protein sources",
+        "Vegan gym diet",
+        "High-protein veg foods"
+      ],
+      "responses": [
+        "Try {exercise} for vegetarian protein.",
+        "Lentils, {exercise}, and tofu are great for muscle gain.",
+        "Vegan protein: {exercise}, chickpeas, and quinoa.",
+        "For plant-based protein, eat {exercise} and soybeans.",
+        "Chickpeas and {exercise} are great vegetarian protein sources.",
+        "For muscle gain, include {exercise} and black beans in your diet.",
+        "Veg protein meals: {exercise}, tempeh, and oats.",
+        "Combine {exercise} with hemp seeds for vegan protein."
+      ]
     },
     {
       "tag": "hydration",
-      "patterns": ["How much water to drink?", "Stay hydrated", "Hydration advice"],
-      "responses": ["Drink at least 3-4 liters daily, and more if you're working out."]
+      "patterns": [
+        "How much water to drink?",
+        "Stay hydrated",
+        "Hydration advice",
+        "Water intake for gym",
+        "How to stay hydrated?",
+        "Water for workouts",
+        "Hydration tips",
+        "Best drinks for gym",
+        "Hydration for muscle gain",
+        "Water intake for fat loss",
+        "How much water daily?",
+        "Hydration for exercise"
+      ],
+      "responses": [
+        "Drink 3\u20134 liters of water daily, more with {exercise}.",
+        "Stay hydrated with {exercise} and 8\u201310 glasses of water.",
+        "For workouts, sip {exercise} and water every 15 min.",
+        "Hydration tip: Carry a bottle and drink {exercise} regularly.",
+        "Aim for 1L per 20kg bodyweight, plus {exercise}.",
+        "For fat loss, drink {exercise} and plenty of water.",
+        "Hydrate with {exercise} and electrolyte drinks post-workout.",
+        "Combine {exercise} with coconut water for hydration."
+      ]
     },
-  {
+    {
       "tag": "supplements",
-      "patterns": ["Which supplements to take?", "Best whey protein", "Is creatine safe?", "Do I need BCAA?"],
-      "responses": ["Whey protein, creatine monohydrate, fish oil, and multivitamins are common and effective."]
+      "patterns": [
+        "Which supplements to take?",
+        "Best whey protein",
+        "Is creatine safe?",
+        "Do I need BCAA?",
+        "Supplements for muscle gain",
+        "Best gym supplements",
+        "Protein powder advice",
+        "Creatine for beginners",
+        "Supplements for fat loss",
+        "Pre-workout supplements",
+        "Best supplements for gym",
+        "Supplements for strength"
+      ],
+      "responses": [
+        "Whey protein, {exercise}, and creatine are effective.",
+        "For muscle gain, try {exercise} and a quality whey protein.",
+        "Creatine is safe; combine with {exercise} for gains.",
+        "BCAA isn\u2019t essential if you eat enough {exercise}.",
+        "Try {exercise}, fish oil, and multivitamins for health.",
+        "Pre-workout: {exercise} and caffeine for energy.",
+        "For fat loss, focus on {exercise} and protein shakes.",
+        "Combine {exercise} with beta-alanine for endurance."
+      ]
     },
     {
       "tag": "natural_vs_supplements",
-      "patterns": ["Should I use supplements or food?", "Supplements vs real food", "Can I gain muscle without supplements?"],
-      "responses": ["Whole food is always best. Supplements are useful when your diet lacks key nutrients."]
+      "patterns": [
+        "Should I use supplements or food?",
+        "Supplements vs real food",
+        "Can I gain muscle without supplements?",
+        "Natural muscle gain",
+        "Do I need supplements?",
+        "Whole food vs protein powder",
+        "Supplements necessary?",
+        "Build muscle naturally",
+        "Supplements or diet?",
+        "Natural gym diet"
+      ],
+      "responses": [
+        "Whole food like {exercise} is best for gains.",
+        "You can build muscle with {exercise} and no supplements.",
+        "Focus on {exercise} and a balanced diet over supplements.",
+        "Natural gains: Eat {exercise}, chicken, and eggs.",
+        "Supplements like {exercise} help if your diet lacks nutrients.",
+        "Prioritize {exercise} and whole foods for muscle.",
+        "No need for supplements if you eat {exercise} and protein-rich foods.",
+        "Combine {exercise} with natural foods for best results."
+      ]
     },
-
-  
     {
       "tag": "protein_requirement",
-      "patterns": ["How much protein do I need?", "Protein per kg", "Protein intake"],
-      "responses": ["1.6–2.2g of protein per kg of bodyweight is recommended for muscle gain."]
+      "patterns": [
+        "How much protein do I need?",
+        "Protein per kg",
+        "Protein intake",
+        "Protein for muscle gain",
+        "How much protein daily?",
+        "Protein needs for gym",
+        "Protein for weight loss",
+        "Protein amount for beginners",
+        "Daily protein intake",
+        "Protein per bodyweight",
+        "Protein for fitness"
+      ],
+      "responses": [
+        "Aim for 1.6\u20132.2g protein/kg bodyweight with {exercise}.",
+        "For muscle gain, eat 1.8g protein/kg and {exercise}.",
+        "Protein needs: 1.6\u20132g/kg, including {exercise}.",
+        "Beginners: Start with 1.5g protein/kg and {exercise}.",
+        "For weight loss, aim for 2g protein/kg and {exercise}.",
+        "Daily protein: 1.6\u20132.2g/kg, focus on {exercise}.",
+        "Combine {exercise} with 1.8g protein/kg for gains.",
+        "Eat {exercise} and 1.6\u20132g protein/kg for fitness."
+      ]
     },
     {
       "tag": "calorie_calculation",
-      "patterns": ["How many calories should I eat?", "Calories for muscle gain", "Cutting calories"],
-      "responses": ["Use your BMR and add 300-500 kcal for bulking, or reduce 300-500 kcal for cutting."]
+      "patterns": [
+        "How many calories should I eat?",
+        "Calories for muscle gain",
+        "Cutting calories",
+        "Calorie intake for gym",
+        "How to calculate calories?",
+        "Calories for bulking",
+        "Calorie deficit for fat loss",
+        "Daily calorie needs",
+        "Calories for weight loss",
+        "Calorie counting tips",
+        "Calorie needs for gym"
+      ],
+      "responses": [
+        "Use your BMR and add 300\u2013500 kcal with {exercise} for bulking.",
+        "For cutting, reduce 300\u2013500 kcal and include {exercise}.",
+        "Calculate calories: BMR + {exercise} for activity level.",
+        "Bulking: Add 500 kcal to BMR with {exercise}.",
+        "Fat loss: Eat 10\u201315% below maintenance with {exercise}.",
+        "Daily calories: BMR + 200\u2013500 kcal and {exercise}.",
+        "Track calories with {exercise} and a food app.",
+        "Combine {exercise} with calorie tracking for results."
+      ]
     },
     {
       "tag": "bmi_info",
-      "patterns": ["What is my BMI?", "BMI meaning", "Body mass index"],
-      "responses": ["BMI = weight(kg) / height(m)^2. It’s a general indicator of body fat."]
+      "patterns": [
+        "What is my BMI?",
+        "BMI meaning",
+        "Body mass index",
+        "How to calculate BMI?",
+        "What\u2019s a healthy BMI?",
+        "BMI for fitness",
+        "BMI and muscle",
+        "BMI explanation",
+        "BMI for gym",
+        "Body mass index guide",
+        "BMI calculation"
+      ],
+      "responses": [
+        "BMI = weight(kg) / height(m)^2, combine with {exercise}.",
+        "Healthy BMI is 18.5\u201324.9, but consider {exercise} for muscle.",
+        "Calculate BMI: Divide weight by height squared, add {exercise}.",
+        "BMI is a general guide; focus on {exercise} for fitness.",
+        "For gym-goers, BMI may be high due to muscle, try {exercise}.",
+        "BMI measures body fat; pair with {exercise} for accuracy.",
+        "To check BMI, use weight/height^2 and {exercise} for context.",
+        "Combine {exercise} with BMI to assess fitness."
+      ]
     },
-
-  {
+    {
       "tag": "recovery_tips",
-      "patterns": ["How to recover fast?", "Post workout recovery", "Muscle soreness solution"],
-      "responses": ["Sleep 7–9 hours, stretch, hydrate, and eat enough protein."]
+      "patterns": [
+        "How to recover fast?",
+        "Post workout recovery",
+        "Muscle soreness solution",
+        "Recovery tips for gym",
+        "How to reduce soreness?",
+        "Muscle recovery advice",
+        "Best recovery methods",
+        "Post-workout tips",
+        "Recovery for beginners",
+        "Muscle repair tips",
+        "How to heal muscles?"
+      ],
+      "responses": [
+        "Recover with 7\u20139 hours sleep and {exercise}.",
+        "Reduce soreness with {exercise} and stretching.",
+        "Post-workout: Eat {exercise} and hydrate well.",
+        "For recovery, try {exercise} and foam rolling.",
+        "Beginners: Rest and include {exercise} for recovery.",
+        "Muscle repair: {exercise}, protein, and rest.",
+        "To recover fast, focus on {exercise} and active recovery.",
+        "Combine {exercise} with light cardio for recovery."
+      ]
     },
     {
       "tag": "rest_days",
-      "patterns": ["Should I take rest days?", "How often to rest?", "Is rest day important?"],
-      "responses": ["Yes! Rest 1–2 days a week for optimal muscle growth and recovery."]
+      "patterns": [
+        "Should I take rest days?",
+        "How often to rest?",
+        "Is rest day important?",
+        "Rest day benefits",
+        "How many rest days?",
+        "Rest for muscle gain",
+        "Rest day tips",
+        "Do I need rest days?",
+        "Rest day schedule",
+        "Recovery days",
+        "Rest for gym"
+      ],
+      "responses": [
+        "Take 1\u20132 rest days weekly with {exercise}.",
+        "Rest days are key for muscle growth, try {exercise}.",
+        "For gains, rest 2 days a week and include {exercise}.",
+        "Rest day tip: Do {exercise} and light stretching.",
+        "Schedule 1\u20132 rest days with {exercise} for recovery.",
+        "Rest is crucial; combine with {exercise} for results.",
+        "Take rest days to recover, focus on {exercise}.",
+        "Combine {exercise} with active rest for gains."
+      ]
     },
-
-   
     {
       "tag": "motivation",
-      "patterns": ["I feel lazy", "No motivation", "Help me stay consistent", "Why should I work out?"],
-      "responses": ["Your body becomes stronger and healthier with every workout. Start small and stay consistent!"]
+      "patterns": [
+        "I feel lazy",
+        "No motivation",
+        "Help me stay consistent",
+        "Why should I work out?",
+        "How to stay motivated?",
+        "Gym motivation tips",
+        "Fitness inspiration",
+        "No energy for gym",
+        "Keep going to gym",
+        "Motivation for beginners",
+        "How to get gym motivation?",
+        "Stay consistent in gym"
+      ],
+      "responses": [
+        "Start small with {exercise} and stay consistent!",
+        "You\u2019re stronger every workout, try {exercise}!",
+        "Motivation tip: Set small goals and do {exercise}.",
+        "Work out for health and confidence, include {exercise}.",
+        "Stay consistent with {exercise} and track progress.",
+        "For energy, try {exercise} and a pre-workout snack.",
+        "Beginners: Find a fun {exercise} to stay motivated!",
+        "Combine {exercise} with a workout playlist for inspiration."
+      ]
     },
     {
       "tag": "gym_tips",
-      "patterns": ["Tips for beginners", "Gym advice", "First time gym", "How to start?"],
-      "responses": ["Start with compound exercises, track progress, stay consistent, and ask for help when needed."]
+      "patterns": [
+        "Tips for beginners",
+        "Gym advice",
+        "First time gym",
+        "How to start?",
+        "Beginner gym tips",
+        "Gym for newbies",
+        "Starting gym routine",
+        "Gym tips for beginners",
+        "How to use gym equipment?",
+        "Gym basics",
+        "Beginner workout tips",
+        "How to start gym?"
+      ],
+      "responses": [
+        "Start with {exercise} and compound lifts.",
+        "Beginner tip: Learn {exercise} and proper form.",
+        "First time? Try {exercise} and ask for help.",
+        "Gym basics: Focus on {exercise} and consistency.",
+        "Use {exercise} and light weights to start.",
+        "Learn {exercise} and track your progress.",
+        "For newbies, try {exercise} and bodyweight exercises.",
+        "Combine {exercise} with a trainer for guidance."
+      ]
     },
-
-   {
+    {
       "tag": "injury_advice",
-      "patterns": ["I got injured", "Workout injury", "Muscle strain", "Shoulder pain after gym"],
-      "responses": ["Rest the affected area, apply ice, and consult a physiotherapist if needed."]
+      "patterns": [
+        "I got injured",
+        "Workout injury",
+        "Muscle strain",
+        "Shoulder pain after gym",
+        "How to handle injury?",
+        "Gym injury tips",
+        "Muscle pull recovery",
+        "Injury prevention",
+        "Sore joints after workout",
+        "Injury advice for gym",
+        "How to recover from injury?",
+        "Gym injury recovery"
+      ],
+      "responses": [
+        "Rest the area, apply ice, and avoid {exercise}.",
+        "For muscle strain, rest and skip {exercise} for now.",
+        "Shoulder pain? Stop {exercise} and see a physio.",
+        "Prevent injuries with {exercise} and proper form.",
+        "Recover with rest, ice, and light {exercise}.",
+        "For joint pain, avoid {exercise} and stretch gently.",
+        "Injury tip: Don\u2019t push through pain, skip {exercise}.",
+        "Combine rest with {exercise} for safe recovery."
+      ]
     },
-
-   {
+    {
       "tag": "equipment_info",
-      "patterns": ["Should I use machines or free weights?", "Best home gym equipment", "What equipment should I buy?"],
-      "responses": ["Free weights are versatile, but machines are safer for beginners. For home: dumbbells, resistance bands, and a bench are great."]
+      "patterns": [
+        "Should I use machines or free weights?",
+        "Best home gym equipment",
+        "What equipment should I buy?",
+        "Gym equipment guide",
+        "Free weights vs machines",
+        "Home gym setup",
+        "Best gym tools",
+        "Equipment for beginners",
+        "What to use in gym?",
+        "Gym equipment advice",
+        "Home workout equipment"
+      ],
+      "responses": [
+        "Free weights like {exercise} are versatile.",
+        "For home gym, get {exercise} and dumbbells.",
+        "Beginners: Use machines or {exercise} for safety.",
+        "Try {exercise} and resistance bands for home.",
+        "Free weights like {exercise} build strength.",
+        "Machines are beginner-friendly, but {exercise} is great.",
+        "Gym equipment: Start with {exercise} and a bench.",
+        "Combine {exercise} with a pull-up bar for home."
+      ]
     },
-
-    
     {
       "tag": "gym_schedule",
-      "patterns": ["Best time to workout", "Morning vs evening workout", "Should I go daily?"],
-      "responses": ["Workout when your energy is highest. Consistency matters more than time of day."]
+      "patterns": [
+        "Best time to workout",
+        "Morning vs evening workout",
+        "Should I go daily?",
+        "Gym schedule tips",
+        "When to exercise?",
+        "Workout timing",
+        "Daily gym routine",
+        "Best gym schedule",
+        "Morning workout benefits",
+        "Evening workout tips",
+        "Workout schedule plan"
+      ],
+      "responses": [
+        "Workout when you\u2019re energized, try {exercise}.",
+        "Morning or evening, include {exercise} for consistency.",
+        "Don\u2019t go daily; rest with {exercise} 1\u20132 days.",
+        "Schedule {exercise} 3\u20135 times a week.",
+        "Morning workouts with {exercise} boost energy.",
+        "Evening workouts? Try {exercise} for stress relief.",
+        "Best time: Pick {exercise} when you feel strong.",
+        "Combine {exercise} with a consistent schedule."
+      ]
+    },
+    {
+      "tag": "gym_etiquette",
+      "patterns": [
+        "Gym etiquette",
+        "Gym rules",
+        "How to behave in gym?",
+        "Gym manners",
+        "What not to do in gym?",
+        "Gym behavior tips",
+        "Gym do\u2019s and don\u2019ts",
+        "How to act in gym?",
+        "Gym courtesy",
+        "Gym newbie etiquette",
+        "Gym behavior guide",
+        "Rules for gym"
+      ],
+      "responses": [
+        "Wipe equipment after {exercise} for etiquette.",
+        "Gym rule: Don\u2019t hog machines, share {exercise}.",
+        "Respect others\u2019 space, especially during {exercise}.",
+        "Don\u2019t drop weights; use {exercise} safely.",
+        "Gym manners: Ask before using {exercise} equipment.",
+        "Return weights after {exercise} for courtesy.",
+        "Avoid loud noises; keep it down during {exercise}.",
+        "Combine {exercise} with good gym etiquette."
+      ]
+    },
+    {
+      "tag": "small_talk",
+      "patterns": [
+        "How are you?",
+        "What\u2019s up?",
+        "You good?",
+        "What are you doing?",
+        "How\u2019s your day?",
+        "Are you a robot?",
+        "Are you real?",
+        "Do you sleep?",
+        "Are you human?",
+        "Do you like fitness?"
+      ],
+      "responses": [
+        "I'm just a bot, but I'm feeling strong today!",
+        "Here to help you crush your fitness goals!",
+        "Always ready to chat about the gym!",
+        "I'm pumped up and ready for your next workout tip!",
+        "Fitness is my life. Yours too?"
+      ]
+    },
+    {
+      "tag": "funny_jokes",
+      "patterns": [
+        "Tell me a joke",
+        "Make me laugh",
+        "Do you know jokes?",
+        "Say something funny"
+      ],
+      "responses": [
+        "Why did the gym close down? It just didn\u2019t work out!",
+        "I tried to lift a dumbbell once... now I\u2019m a chatbot!",
+        "Why don\u2019t bodybuilders use doorbells? They just knock out!",
+        "Squats? I thought you said shots!"
+      ]
+    },
+    {
+      "tag": "english_terms",
+      "patterns": [
+        "What is gym in English?",
+        "Translate bench press",
+        "What does squat mean?",
+        "Define cardio",
+        "Explain protein",
+        "What does stretching mean?",
+        "Meaning of HIIT"
+      ],
+      "responses": [
+        "'Gym' is a place for physical training.",
+        "'Bench press' means lifting weights while lying on a bench.",
+        "'Squat' is a leg exercise where you lower your hips and come back up.",
+        "'Cardio' refers to exercises that increase your heart rate like running or cycling.",
+        "'Protein' is a nutrient that helps build and repair muscles.",
+        "'HIIT' stands for High Intensity Interval Training\u2014quick, intense bursts of activity."
+      ]
+    },
+    {
+      "tag": "mental_health_fitness",
+      "patterns": [
+        "I feel stressed",
+        "How to relax after gym?",
+        "Can exercise help anxiety?",
+        "I feel tired mentally",
+        "Gym and mental health",
+        "Does lifting help your brain?"
+      ],
+      "responses": [
+        "Yes! Exercise is proven to reduce stress and improve mood.",
+        "Try light cardio or yoga to relax after an intense session.",
+        "Weightlifting boosts confidence and releases endorphins\u2014natural mood boosters!",
+        "Take deep breaths, stretch, and hydrate\u2014mental clarity will follow.",
+        "The gym is therapy for the body and mind."
+      ]
+    },
+    {
+      "tag": "gym_facts",
+      "patterns": [
+        "Tell me a fitness fact",
+        "Interesting gym fact",
+        "Did you know?",
+        "Give me workout trivia"
+      ],
+      "responses": [
+        "Did you know? Muscle burns more calories than fat, even at rest.",
+        "Squats and deadlifts engage over 200 muscles in your body!",
+        "Lifting weights improves not just strength but brain function too.",
+        "Your body burns calories even after workouts due to EPOC (Excess Post-exercise Oxygen Consumption)."
+      ]
     }
   ]
 }

@@ -1,84 +1,103 @@
-import numpy as np 
-import nltk 
-import json 
-import random
-import string
 import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suppress TensorFlow warnings
+
+import numpy as np
+import nltk
+import json
+import random
+import pickle
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+import tensorflow as tf
+from gensim.models import Word2Vec
+
 nltk.download('punkt')
 nltk.download('stopwords')
-import re
-import pickle
-import tensorflow as tf
+nltk.download('wordnet')
 
 lemmatizer = WordNetLemmatizer()
-intents = json.loads(open(r"D:\NLP\project\GuffGaaf\intents.json").read())
+intents = json.loads(open('intents.json').read())
 
-
+# Prepare data with augmentation
 words = []
 classes = []
 documents = []
-ignore_words = ['?', '!', '.', ',', "'s", "'m", "'re", "'ll", "'ve", "'d", "'t", "n't", "``", "''"] 
+ignore_words = ['?', '!', '.', ',', "'s", "'m", "'re", "'ll", "'ve", "'d", "'t", "n't", "``", "''"]
+
+# Augment patterns with synonyms
+augmented_patterns = {
+    'diet_muscle_gain': ['how to build muscle', 'build muscle', 'gain muscle mass', 'muscle growth', 'how to get bigger muscles'],
+    'workout_abs': ['abs exercises', 'ab workout', 'core exercises', 'how to train abs', 'abs building'],
+    'diet_protein': ['protein intake', 'how much protein', 'protein per day', 'protein needs', 'how much protein should I take'],
+    'workout_schedule': ['workout schedule', 'training plan', 'weekly workout plan', 'exercise routine', 'gym schedule']
+}
 
 for intent in intents['intents']:
-    for pattern in intent['patterns']:
-        # Tokenize each word in the sentence
-        word_list = word_tokenize(pattern)
+    patterns = intent['patterns']
+    tag = intent['tag']
+    # Add augmented patterns if available
+    if tag in augmented_patterns:
+        patterns.extend(augmented_patterns[tag])
+    for pattern in patterns:
+        word_list = word_tokenize(pattern.lower())
         words.extend(word_list)
-        # Add documents in the corpus
-        documents.append((word_list, intent['tag']))
-        # Add to classes if it's not already there
-        if intent['tag'] not in classes:
-            classes.append(intent['tag'])
+        documents.append((" ".join(word_list), tag))
+        if tag not in classes:
+            classes.append(tag)
 
 words = [lemmatizer.lemmatize(w) for w in words if w not in ignore_words]
 words = sorted(set(words))
 classes = sorted(set(classes))
 
-print(f"Classes: {classes}")
-print(f"Words: {words}")
+print(f"Classes: {len(classes)} intents")
+print(f"Words: {len(words)} unique words")
 
-classes = sorted(set(classes))
-
+# Save words and classes
 pickle.dump(words, open('words.pkl', 'wb'))
 pickle.dump(classes, open('classes.pkl', 'wb'))
 
+# Train Word2Vec model with larger vector size
+sentences = [word_tokenize(doc[0].lower()) for doc in documents]
+word2vec_model = Word2Vec(sentences=sentences, vector_size=300, window=5, min_count=1, workers=4)
+word2vec_model.save('word2vec.model')
 
+def get_sentence_embedding(sentence):
+    words = [lemmatizer.lemmatize(w.lower()) for w in word_tokenize(sentence) if w not in ignore_words]
+    if not words:
+        return np.zeros(300)
+    embeddings = [word2vec_model.wv[w] for w in words if w in word2vec_model.wv]
+    if not embeddings:
+        return np.zeros(300)
+    return np.mean(embeddings, axis=0)
+
+# Prepare training data
 training = []
-output_empty = [0] * len(classes)
-
 for doc in documents:
-    bag = []
-    pattern_words = doc[0]
-    # Lemmatize each word and lower case it
-    pattern_words = [lemmatizer.lemmatize(word.lower()) for word in pattern_words]
-    
-    # Create the bag of words array
-    for w in words:
-        bag.append(1) if w in pattern_words else bag.append(0)
-
-    # Output is a '0' for each tag and '1' for the current tag
-    output_row = list(output_empty)
+    embedding = get_sentence_embedding(doc[0])
+    output_row = [0] * len(classes)
     output_row[classes.index(doc[1])] = 1
-
-    training.append([bag, output_row])
+    training.append([embedding, output_row])
 
 random.shuffle(training)
 training = np.array(training, dtype=object)
-train_x = list(training[:, 0])
-train_y = list(training[:, 1])
-print(f"Training data created: {len(training)} samples")
+train_x = np.array(list(training[:, 0]))
+train_y = np.array(list(training[:, 1]))
 
-model =tf.keras.models.Sequential()
-model.add(tf.keras.layers.Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
-model.add(tf.keras.layers.Dropout(0.5))
-model.add(tf.keras.layers.Dense(64, activation='relu'))
-model.add(tf.keras.layers.Dense(len(train_y[0]), activation='softmax'))
+# Enhanced LSTM model
+model = tf.keras.Sequential([
+    tf.keras.layers.Input(shape=(300,)),
+    tf.keras.layers.Reshape((1, 300)),
+    tf.keras.layers.LSTM(256, return_sequences=True),
+    tf.keras.layers.LSTM(128),
+    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(len(classes), activation='softmax')
+])
 
-sgd = tf.keras.optimizers.SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
-model.save('Gym_chatbot_model.h5', hist)
-print("Model created and saved as 'Gym_chatbot_model.h5'")  
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+model.fit(train_x, train_y, epochs=1000, batch_size=8, verbose=1,
+          callbacks=[tf.keras.callbacks.EarlyStopping(patience=10, restore_best_weights=True)])
+model.save('Gym_chatbot_lstm.h5')
+print("LSTM model trained and saved as 'Gym_chatbot_lstm.h5'")
