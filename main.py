@@ -17,10 +17,10 @@ from gensim.models import Word2Vec
 # ----- FastAPI Setup -----
 app = FastAPI()
 
-# Allow frontend (e.g., index.html or React app) to access the backend
+# Allow frontend to access backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace * with actual domain
+    allow_origins=["*"],  # In production, replace * with actual domain(s)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -126,3 +126,9 @@ def chat_endpoint(msg: Message):
 @app.get("/")
 def serve_index():
     return FileResponse("index.html")
+
+# ----- Run app on Render -----
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
