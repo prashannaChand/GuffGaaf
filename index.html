@@ -19,17 +19,32 @@
     <script>
         async function sendMessage() {
             const userText = document.getElementById('userInput').value;
+            if (!userText.trim()) return;  // Prevent empty input
+
             document.getElementById('chatbox').innerHTML += `<div class="user">You: ${userText}</div>`;
 
-            const response = await fetch("http://127.0.0.1:8000/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userText })
-            });
+            const backendUrl = window.location.origin;
 
-            const data = await response.json();
-            document.getElementById('chatbox').innerHTML += `<div class="bot">Bot: ${data.response}</div>`;
+            try {
+                const response = await fetch(`${backendUrl}/chat`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userText })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Server error: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                document.getElementById('chatbox').innerHTML += `<div class="bot">Bot: ${data.response}</div>`;
+            } catch (error) {
+                document.getElementById('chatbox').innerHTML += `<div class="bot">Bot: Sorry, something went wrong.</div>`;
+                console.error(error);
+            }
+
             document.getElementById('userInput').value = "";
+            document.getElementById('chatbox').scrollTop = document.getElementById('chatbox').scrollHeight;
         }
     </script>
 </body>
