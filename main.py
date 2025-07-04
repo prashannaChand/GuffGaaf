@@ -1,57 +1,93 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-import json
-import random
-import pickle
-import numpy as np
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from pydantic import BaseModel
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+import numpy as np
 import tensorflow as tf
+import pickle
+import random
+import json
 from gensim.models import Word2Vec
 
+# ----- FastAPI Setup -----
+app = FastAPI()
+
+# Allow frontend (e.g., index.html or React app) to access the backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, replace * with actual domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# ----- Request Schema -----
+class Message(BaseModel):
+    message: str
+
+# ----- Load Resources -----
 lemmatizer = WordNetLemmatizer()
-intents = json.loads(open('intents.json').read())
-words = pickle.load(open('words.pkl', 'rb'))
-classes = pickle.load(open('classes.pkl', 'rb'))
-model = tf.keras.models.load_model('Gym_chatbot_lstm.h5')
-word2vec_model = Word2Vec.load('word2vec.model')
+
+try:
+    intents = json.load(open("intents.json"))
+    words = pickle.load(open("words.pkl", "rb"))
+    classes = pickle.load(open("classes.pkl", "rb"))
+    model = tf.keras.models.load_model("Gym_chatbot_lstm.h5")
+    word2vec_model = Word2Vec.load("word2vec.model")
+except Exception as e:
+    print(f"[ERROR LOADING MODELS/FILES] {e}")
+    raise
 
 conversation_history = []
 
+# ----- Helper Functions -----
 def get_sentence_embedding(sentence):
-    words_in_sentence = [
-        lemmatizer.lemmatize(w.lower()) for w in word_tokenize(sentence)
-        if w not in ['?', '!', '.', ',', "'s", "'m", "'re", "'ll", "'ve", "'d", "'t", "n't", "``", "''"]
-    ]
-    if not words_in_sentence:
+    try:
+        tokens = word_tokenize(sentence)
+        words_in_sentence = [
+            lemmatizer.lemmatize(w.lower()) for w in tokens if w.isalnum()
+        ]
+
+        if not words_in_sentence:
+            return np.zeros(300)
+
+        embeddings = [word2vec_model.wv[w] for w in words_in_sentence if w in word2vec_model.wv]
+
+        if not embeddings:
+            return np.zeros(300)
+
+        return np.mean(embeddings, axis=0)
+
+    except Exception as e:
+        print(f"[Embedding Error] {e}")
         return np.zeros(300)
-    embeddings = [word2vec_model.wv[w] for w in words_in_sentence if w in word2vec_model.wv]
-    if not embeddings:
-        return np.zeros(300)
-    return np.mean(embeddings, axis=0)
 
 def predict_class(sentence):
     embedding = get_sentence_embedding(sentence)
     res = model.predict(np.array([embedding]))[0]
     ERROR_THRESHOLD = 0.05
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
+
     if not results:
         max_index = np.argmax(res)
         results = [[max_index, res[max_index]]]
+
     results.sort(key=lambda x: x[1], reverse=True)
     return [{"intent": classes[i[0]], "probability": str(i[1])} for i in results]
 
-def get_response(ints, intents_json):
-    if not ints:
+def get_response(intents_list, intents_json):
+    if not intents_list:
         return "Sorry, I didn't understand that. Can you rephrase?"
-    
-    tag = ints[0]['intent']
+
+    tag = intents_list[0]['intent']
     conversation_history.append(tag)
 
     default_exercises = ['protein shake', 'chicken breast', 'brown rice']
-    exercise_intents = ['diet_muscle_gain', 'diet_fat_loss', 'rest_days', 'diet_protein', 'workout_schedule']
-
     exercises_map = {
         'chest': ['bench press', 'push-ups', 'cable crossovers', 'pec-dec fly', 'chest dips', 'incline press'],
         'arms': ['bicep curls', 'tricep dips', 'hammer curls', 'concentration curls', 'skull crushers'],
@@ -66,18 +102,12 @@ def get_response(ints, intents_json):
         if intent['tag'] == tag:
             response = random.choice(intent['responses'])
 
-            # Handle dynamic logic if {exercise} is in response
             if '{exercise}' in response:
-                # Determine muscle group
                 muscle = tag.split('_')[1] if tag.startswith('workout_') else 'general'
                 exercise_list = exercises_map.get(muscle.lower(), default_exercises)
                 exercise = random.choice(exercise_list)
-                try:
-                    return response.format(exercise=exercise)
-                except KeyError:
-                    return response.replace("{exercise}", exercise)
+                return response.replace("{exercise}", exercise)
 
-            # Context-aware reply
             if 'workout_chest' in conversation_history and tag == 'full_body_workout':
                 return f"{response} Since you mentioned chest workouts, include pull-ups to balance with back training."
 
@@ -85,14 +115,14 @@ def get_response(ints, intents_json):
 
     return "I’m not sure how to help with that. Try asking about workouts or nutrition!"
 
-# --- CLI Chat Interface ---
-print("Chatbot is ready to talk! Type 'quit' to exit.")
+# ----- API Endpoint -----
+@app.post("/chat")
+def chat_endpoint(msg: Message):
+    intents_list = predict_class(msg.message)
+    response = get_response(intents_list, intents)
+    return {"response": response}
 
-while True:
-    message = input("You: ")
-    if message.lower() == 'quit':
-        print("Chatbot: Goodbye! Stay fit!")
-        break
-    ints = predict_class(message)
-    res = get_response(ints, intents)
-    print(f"Chatbot: {res}")
+# ----- Serve UI -----
+@app.get("/")
+def serve_index():
+    return FileResponse("index.html")
